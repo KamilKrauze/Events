@@ -31,13 +31,11 @@ public:
     std::string name() const { DerivedEvent::getName(); }
 };
 
-#define EVENT(EVENTNAME) class EVENTNAME : public Event<EVENTNAME>
-
 ///////////////////////////////////////
 ///////////   Example events  /////////
 ///////////////////////////////////////
 
-EVENT(KeyEvent) 
+class KeyEvent : public Event<KeyEvent>
 {
 private:
     int keyCode;
@@ -49,8 +47,8 @@ public:
     std::string getName() const { return "KeyEvent"; }
 };
 
- EVENT(MouseEvent)
- {
+class MouseEvent : public Event<MouseEvent>
+{
 private:
     int x, y;
 
